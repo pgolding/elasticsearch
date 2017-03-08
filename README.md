@@ -2,8 +2,8 @@
 
 To help those who want to follow [the book](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html) using Python code, I reproduced the various example API calls using the two Python libraries:
 
-*[Elasticsearch](http://elasticsearch-py.readthedocs.io/en/master/index.html)
-*[Elasticsearch DSL](http://elasticsearch-dsl.readthedocs.io/en/latest/index.html)
+* [Elasticsearch](http://elasticsearch-py.readthedocs.io/en/master/index.html)
+* [Elasticsearch DSL](http://elasticsearch-dsl.readthedocs.io/en/latest/index.html)
 
 My goal is to assist the reader/learner in understanding the mechanics of Elasticsearch whilst understanding the Python libs.
 
