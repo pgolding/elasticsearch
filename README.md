@@ -17,4 +17,38 @@ This is a WIP and I will continue to update it with all examples and then build 
 
 Note that the examples here assume the same setup as the examples in the book, namely a virgin instance of Elasticsearch (most likely on localhost) pre-populated with the [test data](https://github.com/pgolding/elasticsearch/blob/master/examples.json).
 
-To populate the index, you can run the additional script first: [add docs to index](https://github.com/pgolding/elasticsearch/blob/master/populate.ipynb)
+The helper script (index.py) is available to populate/delete/reset the index at various times throughout the chapters after it is immutably changed. You don't need to touch it as it is included at the start of each chapter:
+
+```python
+import index
+
+r = index.populate()
+print('{} items created'.format(len(r['items'])))
+```
+
+If at any time you get stuck with the index, then just call ```index.populate()``` to delete and re-populate the index. You can also pass in a JSON object to define the field mappings:
+
+```python
+index_template = {
+  "mappings": {
+    "tweet" : {
+      "properties" : {
+        "tweet" : {
+          "type" :    "text",
+          "analyzer": "english"
+        },
+        "date" : {
+          "type" :   "date"
+        },
+        "name" : {
+          "type" :   "text"
+        },
+        "user_id" : {
+          "type" :   "long"
+        }
+      }
+    }
+  }
+}
+index.populate(index_template)
+```

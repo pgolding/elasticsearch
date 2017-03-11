@@ -84,13 +84,18 @@ def populate(template=None):
     if es.indices.exists('us'):
         es.indices.delete(index='us')
         time.sleep(2)
-    if template==1:
-        es.indices.create(index='gb', body=index_template)        
-        response = es.bulk(body=data)
-    elif template==2:
-        es.indices.create(index='gb', body=multi_field_index_template)
-        es.indices.create(index='us', body=multi_field_index_template)
-        response = es.bulk(body=data)
+    if isinstance(template, int):
+        if template==1:
+            es.indices.create(index='gb', body=index_template)
+            response = es.bulk(body=data)
+        elif template==2:
+            es.indices.create(index='gb', body=multi_field_index_template)
+            es.indices.create(index='us', body=multi_field_index_template)
+            response = es.bulk(body=data)
+    elif isinstance(template, dict):
+            es.indices.create(index='gb', body=multi_field_index_template)
+            es.indices.create(index='us', body=multi_field_index_template)
+            response = es.bulk(body=data)
     else:
         response = es.bulk(body=data)
     return response
