@@ -75,16 +75,23 @@ def reset_all():
         es.indices.delete(index='shows')
     if es.indices.exists('email'):
         es.indices.delete(index='email')
-
-def populate(template=None):
-    response = None
+        
+def create_my_index(index_name='my_index', body=None):
+    if es.indices.exists(index_name):
+        es.indices.delete(index_name)
+    es.indices.create(index=index_name, body=body)
+        
+        
+def populate(template_num=None):
     if es.indices.exists('gb'):
         es.indices.delete(index='gb')
-        time.sleep(2)
+        # cautious wait on index deletion - prob. not needed
+        time.sleep(1)
     if es.indices.exists('us'):
         es.indices.delete(index='us')
-        time.sleep(2)
-    if isinstance(template, int):
+        # cautious wait on index deletion - prob. not needed
+        time.sleep(1)
+    if isinstance(template_num, int):
         if template==1:
             es.indices.create(index='gb', body=index_template)
             response = es.bulk(body=data)
@@ -92,10 +99,24 @@ def populate(template=None):
             es.indices.create(index='gb', body=multi_field_index_template)
             es.indices.create(index='us', body=multi_field_index_template)
             response = es.bulk(body=data)
-    elif isinstance(template, dict):
-            es.indices.create(index='gb', body=multi_field_index_template)
-            es.indices.create(index='us', body=multi_field_index_template)
-            response = es.bulk(body=data)
+    else:
+        response = es.bulk(body=data)
+    return response    
+    
+
+def populate_tweets_using_mapping(template=None):
+    if es.indices.exists('gb'):
+        es.indices.delete(index='gb')
+        # cautious wait on index deletion - prob. not needed
+        time.sleep(1)
+    if es.indices.exists('us'):
+        es.indices.delete(index='us')
+        # cautious wait on index deletion - prob. not needed
+        time.sleep(1)
+    if isinstance(template, dict):
+        es.indices.create(index='gb', body=template)
+        es.indices.create(index='us', body=template)
+        response = es.bulk(body=data)
     else:
         response = es.bulk(body=data)
     return response
