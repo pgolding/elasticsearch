@@ -21,7 +21,7 @@ My goal is to assist the reader/learner in understanding the mechanics of Elasti
 
 As I follow the structure of the book fairly closely (beginning with "Seaching - The Basic Tools") using identical chapter names and headings, I recommend following the book whilst exercising some of the examples in the Kibana console (or via CURL) and some in Python.
 
-The Python examples are embedded in notebook so that it's easier to interact and document the flow.
+The Python examples are embedded in notebooks to provide an interactive flow and a place to play.
 
 Note that the examples here assume the same setup as the examples in the book, namely a virgin instance of Elasticsearch (most likely on localhost) pre-populated with the [test data](https://github.com/pgolding/elasticsearch/blob/master/examples.json).
 
