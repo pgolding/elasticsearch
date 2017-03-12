@@ -19,9 +19,9 @@ This is a set of Jupyter notebooks to help those who want to follow the book [El
 
 My goal is to assist the reader/learner in understanding the mechanics of Elasticsearch whilst understanding the Python libs.
 
-As I follow the structure of the book fairly closely (beginning with "Seaching - The Basic Tools") using identical chapter names and headings, I recommend following the book whilst exercising some of the examples in the Kibana console (or via CURL) and some in Python.
+I follow the structure of the book fairly closely (beginning with "Seaching - The Basic Tools") using identical chapter names and headings. I suggest to follow the book whilst exercising some examples in the Kibana console (or via CURL) and some in Python.
 
-The Python examples are embedded in notebooks to provide an interactive flow and a place to play.
+In true notebook fashion, the notebooks provide an interactive documented flow and a place to play. Where useful, I insert text from the guide so as to not break the flow too much (between the book and the notebooks).
 
 Note that the examples here assume the same setup as the examples in the book, namely a virgin instance of Elasticsearch (most likely on localhost) pre-populated with the [test data](https://github.com/pgolding/elasticsearch/blob/master/examples.json).
 
