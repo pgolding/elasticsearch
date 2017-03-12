@@ -5,6 +5,7 @@
 ##### Services:
 * Kibana (5.2.2)
 * Elasticsearch (5.2.2)
+
 ##### Python libs:
 * elasticsearch (5.2.0)
 * elasticsearch-dsl (5.1.0)
