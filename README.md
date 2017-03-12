@@ -1,6 +1,9 @@
 # Elasticsearch: The Definitive Guide (with Python examples) #
 
-##### Versions:
+#### Versions: ####
+
+##### Services:
+* Kibana (5.2.2)
 * Elasticsearch (5.2.2)
 ##### Python libs:
 * elasticsearch (5.2.0)
@@ -8,7 +11,7 @@
 
 ### What is this?
 
-This is a set of Jupyter notebooks to help those who want to follow the book [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html) using Python code in addition to the JSON API calls in the book. I reproduced most of the example API calls using the two Python libraries:
+This is a set of Jupyter notebooks to help those who want to follow the book [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html) using Python code in addition to the JSON API calls in the book. I have reproduced most of the example API calls, often in various ways, using the two Python libraries:
 
 * [Elasticsearch](http://elasticsearch-py.readthedocs.io/en/master/index.html)
 * [Elasticsearch DSL](http://elasticsearch-dsl.readthedocs.io/en/latest/index.html)
@@ -21,7 +24,7 @@ The Python examples are embedded in notebook so that it's easier to interact and
 
 Note that the examples here assume the same setup as the examples in the book, namely a virgin instance of Elasticsearch (most likely on localhost) pre-populated with the [test data](https://github.com/pgolding/elasticsearch/blob/master/examples.json).
 
-The helper script (index.py) is available to populate/delete/reset the index at various times throughout the chapters after it is immutably changed. You don't need to touch it as it is included at the start of each chapter:
+The helper script (index.py) is available to populate/delete/reset the index at various times throughout the chapters. You don't need to touch it as I included initialization at the start of each chapter:
 
 ```python
 import index
@@ -56,6 +59,8 @@ index_template = {
 }
 index.populate(index_template)
 ```
+
+(However, I usually make these calls where needed in the notebooks.)
 
 This is a WIP and I will continue to update it with all examples and later build out more complex examples as accompanying notebooks.
 
