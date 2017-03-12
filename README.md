@@ -1,25 +1,23 @@
 # Elasticsearch: The Definitive Guide (with Python examples) #
 
-Versions:
-Elasticsearch (5.2.2)
-Python libs:
-elasticsearch (5.2.0)
-elasticsearch-dsl (5.1.0)
+##### Versions:
+* Elasticsearch (5.2.2)
+##### Python libs:
+* elasticsearch (5.2.0)
+* elasticsearch-dsl (5.1.0)
 
-To help those who want to follow [the book](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html) using Python code, I reproduced the various example API calls using the two Python libraries:
+### What is this?
+
+This is a set of Jupyter notebooks to help those who want to follow the book [Elasticsearch: The Definitive Guide](https://www.elastic.co/guide/en/elasticsearch/guide/master/index.html) using Python code in addition to the JSON API calls in the book. I reproduced most of the example API calls using the two Python libraries:
 
 * [Elasticsearch](http://elasticsearch-py.readthedocs.io/en/master/index.html)
 * [Elasticsearch DSL](http://elasticsearch-dsl.readthedocs.io/en/latest/index.html)
 
 My goal is to assist the reader/learner in understanding the mechanics of Elasticsearch whilst understanding the Python libs.
 
-I recommend following the book whilst exercising the examples in the Kibana console (or CURL) and Python.
+As I follow the structure of the book fairly closely (beginning with "Seaching - The Basic Tools") using identical chapter names and headings, I recommend following the book whilst exercising some of the examples in the Kibana console (or via CURL) and some in Python.
 
-The Python examples are embedded in an iPython notebook so that it's easier to interact and document the flow.
-
-The examples here mostly follow the exact same flow as the book, but beginning with chapter "Seaching - The Basic Tools"
-
-This is a WIP and I will continue to update it with all examples and later build out more complex examples as accompanying notebooks.
+The Python examples are embedded in notebook so that it's easier to interact and document the flow.
 
 Note that the examples here assume the same setup as the examples in the book, namely a virgin instance of Elasticsearch (most likely on localhost) pre-populated with the [test data](https://github.com/pgolding/elasticsearch/blob/master/examples.json).
 
@@ -59,6 +57,8 @@ index_template = {
 index.populate(index_template)
 ```
 
-Note that this is not a comprehensive coverage of all examples in the book. I have skipped a few examples here and there, mostly because they are repetitive of other examples or because they deal with non-English languages.
+This is a WIP and I will continue to update it with all examples and later build out more complex examples as accompanying notebooks.
 
-Also, I have added extra examples and included test data where necessary. This was to add further clarity of emphasis to some of the examples or to provide settings or info overlooked by the book (but covered in the API docs).
+Note that this is **not** a comprehensive coverage of all examples in the book. I have skipped a few examples here and there, mostly because they are repetitive or because they deal with non-English languages.
+
+Also, I have added extra examples and included supplementary test data where useful (e.g. synonyms, stopwords files etc.) . This was to add further clarity of emphasis to some of the examples or to provide settings or info overlooked by the book (but covered in the API docs).
