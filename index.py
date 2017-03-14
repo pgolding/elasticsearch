@@ -66,8 +66,35 @@ multi_field_index_template = {
   }
 }
 
-f = open('../examples.json', 'r')
+f = open('../examples_main.json', 'r')
 data = f.read()
+
+def load_sid_examples(settings=None, set=None):
+    if set==1:
+        file_to_load='../examples_sid.json'
+        idx = 'my_store'
+        dt = 'produces'
+    elif set==2:
+        file_to_load='../examples_posts.json'
+        idx = 'my_index'
+        dt = 'posts'
+    else:
+        file_to_load='../examples_sid.json'
+        idx = 'my_store'
+        dt = 'produces'
+        
+    try:
+        f = open(file_to_load, 'r')
+        sid_data = f.read()
+        if es.indices.exists(idx):
+            es.indices.delete(idx)
+        if settings:
+            es.indices.create(index=idx, body=settings)  
+        response = es.bulk(index=idx, doc_type=dt, body=sid_data)
+    except Exception as e:
+        print('Error loading examples')
+        response = e
+    return response
 
 def reset_all():
     reset()

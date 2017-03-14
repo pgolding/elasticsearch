@@ -1,0 +1,10 @@
+{ "index": { "_id": "1"              }}
+{ "tags" : ["search"]                }  
+{ "index": { "_id": "2"              }}
+{ "tags" : ["search", "open_source"] }  
+{ "index": { "_id": "3"              }}
+{ "other_field" : "some data"        }  
+{ "index": { "_id": "4"              }}
+{ "tags" : null                      }  
+{ "index": { "_id": "5"              }}
+{ "tags" : ["search", null]          } 
