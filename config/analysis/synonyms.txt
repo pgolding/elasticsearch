@@ -1,0 +1,3 @@
+manager => leader,boss,person
+chef => chef,cook,person
+maid => maid,housemaid,young_lady,female,person
