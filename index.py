@@ -15,7 +15,9 @@ es = Elasticsearch(
     sniffer_timeout=60
 )
 
+# Shards = 1 because of https://www.elastic.co/guide/en/elasticsearch/guide/master/relevance-is-broken.html
 index_template = {
+  "settings": { "number_of_shards": 1 },
   "mappings": {
     "tweet" : {
       "properties" : {
@@ -37,7 +39,9 @@ index_template = {
   }
 }
 
+# Shards = 1 because of https://www.elastic.co/guide/en/elasticsearch/guide/master/relevance-is-broken.html
 multi_field_index_template = {
+  "settings": { "number_of_shards": 1 },
   "mappings": {
     "tweet" : {
       "properties" : {
@@ -78,6 +82,10 @@ def load_sid_examples(settings=None, set=None):
         file_to_load='../examples_posts.json'
         idx = 'my_index'
         dt = 'posts'
+    elif set==3:
+        file_to_load='../examples_fox.json'
+        idx = 'my_index'
+        dt = 'my_type'        
     else:
         file_to_load='../examples_sid.json'
         idx = 'my_store'
@@ -157,7 +165,7 @@ def reset():
         es.indices.delete(index='us')
         time.sleep(1)
         
-
+# A helped class to render long JSON objects from ES with collapsible elements
 class RenderJSON(object):
     def __init__(self, json_data):
         if isinstance(json_data, dict):
